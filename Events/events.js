@@ -1,4 +1,4 @@
-module.exports = class EventEmitter {
+class EventEmitter {
   listeners = {} // Master object
 
   addListener(eventName, fn) {
@@ -28,7 +28,7 @@ module.exports = class EventEmitter {
   removeListener(eventName, fn) {
     let lis = this.listeners[eventName];
     if (!lis) return this;
-    for (let i = lis.length; i > 0; i--) {
+    for (let i = lis.length - 1; i >= 0; i--) {
       if (lis[i] === fn) {
         lis.splice(i, 1);
         break;
@@ -55,4 +55,36 @@ module.exports = class EventEmitter {
     return this.listeners[eventName];
   }
 }
+
+class Emitter extends EventEmitter { }
+const myE = new Emitter();
+
+function WhoAmI() { }
+function profession() { }
+function tech() {
+  console.log("tech");
+
+}
+
+// myE.on("info", WhoAmI)
+// myE.on("info", profession)
+
+// myE.emit("info")
+// console.log(myE.addListener());
+
+
+myE.once("foo", tech)
+
+myE.emit("foo")
+// myE.emit("foo")
+// myE.emit("foo")
+
+
+
+
+
+
+
+
+
 
