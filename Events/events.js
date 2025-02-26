@@ -1,4 +1,4 @@
-class EventEmitter {
+module.exports = class EventEmitter {
   listeners = {} // Master object
 
   addListener(eventName, fn) {
@@ -54,30 +54,9 @@ class EventEmitter {
   rawListeners(eventName) {
     return this.listeners[eventName];
   }
-}
-
-class Emitter extends EventEmitter { }
-const myE = new Emitter();
-
-function WhoAmI() { }
-function profession() { }
-function tech() {
-  console.log("tech");
 
 }
 
-// myE.on("info", WhoAmI)
-// myE.on("info", profession)
-
-// myE.emit("info")
-// console.log(myE.addListener());
-
-
-myE.once("foo", tech)
-
-myE.emit("foo")
-// myE.emit("foo")
-// myE.emit("foo")
 
 
 

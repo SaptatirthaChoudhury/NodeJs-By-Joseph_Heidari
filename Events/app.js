@@ -1,22 +1,29 @@
-const EventEmitter = require("./events");
+const EventEmitter = require("./events")
 
 class Emitter extends EventEmitter { }
-
 const myE = new Emitter();
 
-myE.on("foo", () => {
-    console.log("An event occurred 1");
-})
+function WhoAmI() {
+    console.log("It's me Babayaga");
+}
 
-myE.on("foo", () => {
-    console.log("An event occurred 2");
-})
+function profession() {
+    console.log("Building million dollar tech");
+}
 
-myE.on("foo", (x) => {
-    console.log("An event with a parameter occurred");
-    console.log(x);
-    
-})
+function tech() {
+    console.log("tech X");
+}
+
+myE.on("info", WhoAmI)
+myE.on("info", profession)
+
+myE.emit("info")
+myE.emit("info")
+
+
+myE.once("foo", tech)
 
 myE.emit("foo")
-myE.emit("foo", "some text")
+myE.emit("foo")
+myE.emit("foo")
