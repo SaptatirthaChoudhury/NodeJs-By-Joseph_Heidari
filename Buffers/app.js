@@ -48,10 +48,12 @@ console.log(buff4.toString("utf-8"));
 // const buff = Buffer.from("Hi!", "utf-8")
 // console.log(buff);
 
-const buff = Buffer.from("E0A69D", "binary")
-console.log(buff)
-const back = buff.toString("utf-8")
-console.log(back);
-console.log(Buffer.from(back, "hex").toString("utf-8"));
+//const buff = Buffer.from("E0A69D", "binary")
+//console.log(buff)
+// const back = buff.toString("utf-8")
+// console.log(back);
+// console.log(Buffer.from(back, "hex").toString("utf-8"));
+
+
 
 
