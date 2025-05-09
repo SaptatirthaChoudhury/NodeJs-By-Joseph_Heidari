@@ -14,6 +14,7 @@ const fs = require("fs/promises");
         } catch (error) {
             // We don't have the file, now we should create it
             const newFileHandle = await fs.open(path, "w");
+            console.log(`new file: ${newFileHandle}`);
             console.log('A new file was successfully created');
             newFileHandle.close();
         }
@@ -49,6 +50,7 @@ const fs = require("fs/promises");
         // create a file <path>
         if (command.includes(CREATE_FILE)) {
             const filePath = command.substring(CREATE_FILE.length + 1);
+            console.log(`filePath: ${filePath}`)
             createFile(filePath);
         }
 
